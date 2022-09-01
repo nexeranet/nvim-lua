@@ -1,11 +1,14 @@
 require('nvim-tree').setup({
   open_on_setup = false,
   sort_by = "case_sensitive",
+  hijack_cursor = true,
   view = {
     adaptive_size = true,
+    side = "left",
     mappings = {
       list = {
-        { key = "u", action = "dir_up" },
+        { key = "i", action = "split" },
+        { key = "v", action = "vsplit" },
       },
     },
   },
