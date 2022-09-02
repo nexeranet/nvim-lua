@@ -7,11 +7,12 @@ local hl = function(thing, opts)
   vim.api.nvim_set_hl(0, thing, opts)
 end
 
-g.mapleader = ','
+g.mapleader = ' '
 o.cursorline = true
 o.termguicolors = true
 o.clipboard = 'unnamedplus'
 o.nu = true
+o.mouse = 'a'
 o.relativenumber = false
 o.hidden = true
 o.tabstop = 4

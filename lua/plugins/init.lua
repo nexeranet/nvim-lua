@@ -11,11 +11,54 @@ return require('packer').startup {
     use 'wbthomason/packer.nvim'
     use 'nvim-lua/plenary.nvim'
 
+    --  AUTOCOMPLETE ENGINE
+    use {
+      'hrsh7th/nvim-cmp',
+      config = function()
+        require('plugins.cmp')
+      end
+    }
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+
+    -- LSP
+    use {
+      'neovim/nvim-lspconfig',
+      config = function()
+        require('plugins.lsp')
+      end
+    }
+    use 'ray-x/lsp_signature.nvim' -- show function signature on type
+    use 'onsails/lspkind-nvim'
+    use 'simrat39/rust-tools.nvim'
+
+    --SNIPPERTS
+    -- use 'rafamadriz/friendly-snippets'
+    -- use {
+    --   'L3MON4D3/LuaSnip',
+    --   after = 'friendly-snippets',
+    --   config = function()
+    --     require('luasnip/loaders/from_vscode').load({
+    --       paths = { '~/.local/share/nvim/site/pack/packer/start/friendly-snippets' }
+    --     })
+    --   end
+    -- }
+    -- use 'saadparwaiz1/cmp_luasnip'
+
     -- COLORSHEME
     use {
       'Mofiqul/dracula.nvim',
       config = function()
         require('plugins.dracula')
+      end
+    }
+
+    -- AUTO PAIRS
+    use {
+      "windwp/nvim-autopairs",
+      config = function()
+        require("nvim-autopairs").setup({})
       end
     }
 
