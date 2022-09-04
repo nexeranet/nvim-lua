@@ -138,6 +138,7 @@ return require('packer').startup {
         require('plugins.telescope')
       end
     }
+    use {'nvim-telescope/telescope-ui-select.nvim' }
     -- Greeter screen
     use {
       'goolord/alpha-nvim',

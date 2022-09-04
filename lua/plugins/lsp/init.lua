@@ -10,6 +10,7 @@ end
 
 require('lsp_signature').setup({
   hint_prefix = '',
+  hint_enable = false,
 })
 
 local map = vim.keymap.set
@@ -23,3 +24,5 @@ map('n', ']d', vim.diagnostic.goto_next, opts)
 map('n', '<leader>q', vim.diagnostic.setloclist, opts)
 
 require('plugins.lsp.rust')
+require('plugins.lsp.go')
+require('plugins.lsp.lua')
