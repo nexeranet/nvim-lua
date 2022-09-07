@@ -1,6 +1,5 @@
 local utils = require('plugins.lsp.utils')
 local map = vim.keymap.set
-
 local options = {
     tools = { -- rust-tools options
         autoSetHints = true,
@@ -26,7 +25,7 @@ local options = {
         capabilities = utils.capabilities,
         on_attach = function(client, bufnr)
           utils.on_attach(client, bufnr)
-          map("n", "<Shift-K>", '<cmd>RustHoverActions<CR>' , { buffer = bufnr, noremap=true, silent=true })
+          map("n", "K", '<cmd>RustHoverActions<CR>' , { buffer = bufnr, noremap=true, silent=true })
         end,
         settings = {
             -- to enable rust-analyzer settings visit:

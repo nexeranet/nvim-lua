@@ -6,7 +6,7 @@ utils.capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 function utils.on_attach(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
   map('n', 'gD', vim.lsp.buf.declaration, bufopts)
   map('n', 'gd', vim.lsp.buf.definition, bufopts)
   map('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -21,8 +21,8 @@ function utils.on_attach(client, bufnr)
   map('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   map('n', 'gr', vim.lsp.buf.references, bufopts)
   map('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
-  vim.api.nvim_set_hl(0, "FloatBorder", {bg="#3B4252", fg="#5E81AC"})
-  vim.api.nvim_set_hl(0, "NormalFloat", {bg="#3B4252"})
+  vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#3B4252", fg = "#5E81AC" })
+  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#3B4252" })
 end
 
 return utils
