@@ -90,7 +90,11 @@ return require('packer').startup {
     use {
       'numToStr/Comment.nvim',
       config = function()
-        require('Comment').setup()
+        require('Comment').setup({
+          opleader = {
+            line = '<leader>cl',
+          },
+        })
       end
     }
 
@@ -145,6 +149,18 @@ return require('packer').startup {
       requires = { 'kyazdani42/nvim-web-devicons' },
       config = function ()
         require'alpha'.setup(require'alpha.themes.startify'.config)
+      end
+    }
+    -- TODO highlighter
+    use {
+      "folke/todo-comments.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = function()
+        require("todo-comments").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
       end
     }
 

@@ -40,7 +40,7 @@ map('n', '<leader>fd', '<cmd>Telescope diagnostics<CR>', opts)
 
 map('n', '<leader>ff', '<cmd>Telescope find_files<CR>', opts)
 
-vim.keymap.set('n', '<leader>fdd', function()
+vim.keymap.set('n', '<leader>fs', function()
   builtin.diagnostics({ bufnr = 0 })
 end)
 

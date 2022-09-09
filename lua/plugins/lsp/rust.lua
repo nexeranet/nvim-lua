@@ -26,6 +26,7 @@ local options = {
         on_attach = function(client, bufnr)
           utils.on_attach(client, bufnr)
           map("n", "K", '<cmd>RustHoverActions<CR>' , { buffer = bufnr, noremap=true, silent=true })
+          map('n', '<leader>ca', '<cmd>RustCodeAction<CR>', { buffer = bufnr, noremap=true, silent=true })
         end,
         settings = {
             -- to enable rust-analyzer settings visit:
