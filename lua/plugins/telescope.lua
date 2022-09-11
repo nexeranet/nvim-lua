@@ -1,7 +1,7 @@
 local status, telescope = pcall(require, "telescope")
 if (not status) then return end
 
-local builtin = require("telescope.builtin")
+-- local builtin = require("telescope.builtin")
 local previewers = require('telescope.previewers')
 telescope.setup {
   defaults = {
@@ -27,27 +27,26 @@ telescope.load_extension("ui-select")
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-local openTelescopeOnSplit = function(telescope_type)
-  vim.cmd('split')
-  local win = vim.api.nvim_get_current_win()
-  local buf = vim.api.nvim_create_buf(true, true)
-  vim.api.nvim_win_set_buf(win, buf)
-  vim.api.nvim_command('Telescope ' .. telescope_type)
-end
+-- local openTelescopeOnSplit = function(telescope_type)
+--   vim.cmd('split')
+--   local win = vim.api.nvim_get_current_win()
+--   local buf = vim.api.nvim_create_buf(true, true)
+--   vim.api.nvim_win_set_buf(win, buf)
+--   vim.api.nvim_command('Telescope ' .. telescope_type)
+-- end
 
+-- vim.keymap.set('n', '<leader>fs', function()
+--   builtin.diagnostics({ bufnr = 0 })
+-- end)
 
 map('n', '<leader>fd', '<cmd>Telescope diagnostics<CR>', opts)
 
 map('n', '<leader>ff', '<cmd>Telescope find_files<CR>', opts)
 
-vim.keymap.set('n', '<leader>fs', function()
-  builtin.diagnostics({ bufnr = 0 })
-end)
+map('n', '<leader>fs', '<cmd>Telescope diagnostics bufnr=0<CR>', opts)
 
 map('n', '<leader>ff', '<cmd>Telescope find_files<CR>', opts)
 
 map('n', '<leader>fb', '<cmd>Telescope buffers<CR>', opts)
 
-vim.keymap.set('n', '<leader>fg', function()
-  openTelescopeOnSplit('live_grep')
-end, opts)
+map('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', opts)
