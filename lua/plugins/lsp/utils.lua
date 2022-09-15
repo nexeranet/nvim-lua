@@ -8,15 +8,19 @@ function utils.on_attach(client, bufnr)
 
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
-  map('n', '<leader>gd', function()
+  -- map('n', 'gd', vim.lsp.buf.definition, bufopts)
+  map('n', 'gd', function()
     local buf = vim.api.nvim_get_current_buf()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    vim.api.nvim_buf_set_mark(buf, 'd', line, col, {})
+    -- local _, _, buffer, bufname = unpack(vim.api.nvim_get_mark('D', {}))
+    -- if buffer ~= 0 and bufname ~= '' then
+    --   vim.nvim_del_mark('D')
+    -- end
+    vim.api.nvim_buf_set_mark(buf, 'D', line, col, {})
     vim.lsp.buf.definition()
   end, bufopts)
 
   map('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  map('n', 'gd', vim.lsp.buf.definition, bufopts)
   map('n', 'K', vim.lsp.buf.hover, bufopts)
   map('n', 'gi', vim.lsp.buf.implementation, bufopts)
   map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
