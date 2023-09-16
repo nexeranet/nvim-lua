@@ -158,6 +158,24 @@ return require('packer').startup {
       end
     }
     use { 'nvim-telescope/telescope-ui-select.nvim' }
+    -- VIMWIKI
+    use {
+      'vimwiki/vimwiki',
+      config = function()
+        vim.g.vimwiki_list = {
+          {
+            path = '~/vimwiki/',
+            syntax = 'markdown',
+            ext  = '.md',
+          }
+        }
+        vim.g.vimwiki_ext2syntax = {
+          ['.md'] = 'markdown',
+          ['.markdown'] = 'markdown',
+          ['.mdown'] = 'markdown',
+        }
+      end
+    }
     -- Greeter screen
     -- use {
     --   'goolord/alpha-nvim',
