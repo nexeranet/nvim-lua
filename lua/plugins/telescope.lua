@@ -19,10 +19,12 @@ telescope.setup {
         -- even more opts
       }
     },
+    undo = {},
   },
 }
 
 telescope.load_extension("ui-select")
+telescope.load_extension("undo")
 
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }

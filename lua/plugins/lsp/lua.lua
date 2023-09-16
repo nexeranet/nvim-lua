@@ -4,7 +4,8 @@ require'lspconfig'.sumneko_lua.setup {
     utils.on_attach(client, bufnr)
   end,
   capabilities = utils.capabilities,
-  cmd = {'/home/oleh/code/lua-language-server/bin/lua-language-server'},
+  -- cmd = {'/home/oleh/code/lua-language-server/bin/lua-language-server'},
+  cmd = {'/opt/homebrew/bin/lua-language-server'},
   settings = {
     Lua = {
       runtime = {

@@ -25,5 +25,5 @@ map('n', '<leader>q', vim.diagnostic.setloclist, opts)
 
 require('plugins.lsp.rust')
 require('plugins.lsp.go')
-require('plugins.lsp.lua')
+-- require('plugins.lsp.lua')
 -- require('plugins.lsp.python')

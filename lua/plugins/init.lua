@@ -48,10 +48,16 @@ return require('packer').startup {
     -- use 'saadparwaiz1/cmp_luasnip'
 
     -- COLORSHEME
+    -- use {
+    --   'Mofiqul/dracula.nvim',
+    --   config = function()
+    --     require('plugins.dracula')
+    --   end
+    -- }
     use {
-      'Mofiqul/dracula.nvim',
+      'arcticicestudio/nord-vim',
       config = function()
-        require('plugins.dracula')
+        require('plugins.nord')
       end
     }
 
@@ -139,20 +145,34 @@ return require('packer').startup {
     -- Telescope
     use {
       'nvim-telescope/telescope.nvim',
+      requires = {
+        {
+          'nvim-lua/plenary.nvim',
+        },
+        {
+          'debugloop/telescope-undo.nvim',
+        },
+      },
       config = function()
         require('plugins.telescope')
       end
     }
     use { 'nvim-telescope/telescope-ui-select.nvim' }
     -- Greeter screen
+    -- use {
+    --   'goolord/alpha-nvim',
+    --   requires = { 'kyazdani42/nvim-web-devicons' },
+    --   config = function()
+    --     require 'alpha'.setup(require 'alpha.themes.startify'.config)
+    --   end
+    -- }
     use {
-      'goolord/alpha-nvim',
-      requires = { 'kyazdani42/nvim-web-devicons' },
+      'stevearc/oil.nvim',
       config = function()
-        require 'alpha'.setup(require 'alpha.themes.startify'.config)
+        require('plugins.oil')
       end
     }
-    -- TODO highlighter
+    -- TODO: highlighter
     use {
       "folke/todo-comments.nvim",
       requires = "nvim-lua/plenary.nvim",
@@ -164,7 +184,7 @@ return require('packer').startup {
         }
       end
     }
-
+    --
     -- GIT INTEGRATION
     use {
       'lewis6991/gitsigns.nvim',

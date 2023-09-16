@@ -1,7 +1,7 @@
 local utils = {}
 local map = vim.keymap.set
 
-utils.capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+utils.capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 function utils.on_attach(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -32,7 +32,10 @@ function utils.on_attach(client, bufnr)
   map('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
   map('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   map('n', 'gr', vim.lsp.buf.references, bufopts)
-  map('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
+  -- map('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
+  map('n', '<leader>f', function()
+    vim.lsp.buf.format({async = true})
+  end, bufopts)
   vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#3B4252", fg = "#5E81AC" })
   vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#3B4252" })
 end
