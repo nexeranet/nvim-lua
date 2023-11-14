@@ -211,6 +211,39 @@ return require('packer').startup {
       end
     }
 
+    --
+    -- Leap navigation
+    use {
+      'ggandor/leap.nvim',
+      config = function()
+        require('leap').add_default_mappings()
+      end
+    }
+    -- diffview for git
+    use {
+      "sindrets/diffview.nvim",
+      config = function()
+        require('plugins.diffview')
+      end
+    }
+
+    use 'ray-x/guihua.lua' -- recommended if need floating window support
+    use {
+      'ray-x/go.nvim',
+      config = function()
+        require('plugins.gonvim')
+      end
+    }
+
+    use 'mfussenegger/nvim-dap'
+    use {
+      "rcarriga/nvim-dap-ui",
+      requires = {"mfussenegger/nvim-dap"},
+      config = function()
+        require("dapui").setup()
+      end
+    }
+
     if packer_bootstrap then
       require('packer').sync()
     end
